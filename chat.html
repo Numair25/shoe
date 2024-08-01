@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: url('./assets/competation/background/background\ image\ with\ opacity.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            animation: backgroundAnimation 10s ease infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            background: linear-gradient(45deg, rgba(198, 156, 108, 0.9), rgba(198, 156, 108, 0.7));
+            animation: headerAnimation 5s ease infinite;
+            padding: 10px 20px;
+        }
+
+        @keyframes headerAnimation {
+            0% { background-color: rgba(198, 156, 108, 0.9); }
+            50% { background-color: rgba(182, 141, 92, 0.9); }
+            100% { background-color: rgba(198, 156, 108, 0.9); }
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navleft img {
+            width: 100px;
+        }
+
+        .navcenter button {
+            margin: 0 10px;
+            animation: buttonHover 2s infinite;
+        }
+
+        @keyframes buttonHover {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .navright ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navright ul li {
+            padding: 15px;
+        }
+
+        .navright ul li a {
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .navright ul li a:hover {
+            color: #ffcc00;
+            transform: translateY(-5px);
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        h1 {
+            color: white;
+            font-weight: 700;
+            font-size: 40px;
+            /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+        }
+
+        h2 {
+            color: #c69c6c;
+            font-weight: 500;
+            font-size: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .subnav {
+            margin-top: 30px;
+        }
+
+        ol {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            flex-direction: column;
+        }
+
+        ol li {
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        ol li:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .toggle-button {
+            display: none;
+            color: white;
+        }
+
+        .toggle-button.active {
+            display: block;
+        }
+
+        #num {
+            color: gray;
+        }
+
+        .switchsec {
+            padding: 50px;
+            background: linear-gradient(45deg, rgba(198, 156, 108, 0.8), rgba(182, 141, 92, 0.8));
+            border-radius: 25px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+            animation: switchsecAnimation 3s ease infinite;
+        }
+
+        @keyframes switchsecAnimation {
+            0% { background: linear-gradient(45deg, rgba(198, 156, 108, 0.8), rgba(182, 141, 92, 0.8)); }
+            50% { background: linear-gradient(45deg, rgba(182, 141, 92, 0.8), rgba(198, 156, 108, 0.8)); }
+            100% { background: linear-gradient(45deg, rgba(198, 156, 108, 0.8), rgba(182, 141, 92, 0.8)); }
+        }
+
+        #main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #launchalign,
+        #portalign,
+        #spacealign {
+            display: flex;
+            align-items: center;
+        }
+
+        #hlp,
+        #hpp,
+        #hsp {
+            padding-right: 100px;
+        }
+
+        h3 {
+            font-weight: 300;
+        }
+
+        #onel,
+        #twop,
+        #threes {
+            border: 1px solid #c69c6c;
+            background-color: white;
+            border-radius: 100%;
+            padding: 15px;
+            margin: 10px;
+            color: #c69c6c;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #onel:hover,
+        #twop:hover,
+        #threes:hover {
+            color: white;
+            background-color: #c69c6c;
+            border: 1px solid black;
+            transform: scale(1.2);
+        }
+
+        .responsivesubnav {
+            display: none;
+        }
+
+        .hamburger-button {
+            display: none;
+        }
+
+        div#shoealign {
+            display: flex;
+            justify-content: center;
+            background-image: url(./assets/competation/4.png);
+        }
+
+        .shoecontainer {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            margin: 20px;
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .headline {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+            animation: textAnimation 5s infinite;
+        }
+
+        @keyframes textAnimation {
+            0%, 100% { color: #333; }
+            50% { color: #555; }
+        }
+
+        .subheadline {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background: linear-gradient(135deg, #c69c6c, #a0522d);
+            border: 2px solid #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, filter 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #a0522d, #8b4513);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            border-color: #c69c6c;
+            filter: brightness(1.1);
+        }
+
+        .cta-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-color: #fff;
+            filter: brightness(1);
+        }
+
+        .image-container {
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .btncss {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: buttonPulse 2s infinite;
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .btncss:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .btncss:active {
+            background-color: #222;
+            transform: scale(0.98);
+        }
+
+        .contact-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            animation: slideIn 2s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .contact-container h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #016052;
+            text-align: center;
+        }
+
+        .contact-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #016052;
+        }
+
+        .contact-container input,
+        .contact-container textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .contact-container textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .contact-container input[type="submit"] {
+            background: #016052;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-container input[type="submit"]:hover {
+            background: #014c42;
+        }
+
+        .contact-container .required {
+            color: red;
+        }
+
+        section#contactform {
+            display: flex;
+            justify-content: center;
+        }
+
+        .overview-container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            animation: slideUp 2s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .overview-title {
+            color: #c69c6c;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .overview-subtitle {
+            color: #555;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .overview-paragraph {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .benefit-item {
+            background: #eaf0f2;
+            border-left: 5px solid #c69c6c;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .benefit-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: #c69c6c;
+        }
+
+        section#servicesection,
+        #featuressection {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 2s ease;
+        }
+
+        .container-title {
+            color: #c69c6c;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .feature-container {
+            display: flex;
+            /* flex-direction: column; */
+            align-items: center;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .feature-title {
+            color: #555;
+            font-size: 22px;
+            margin: 0;
+        }
+
+        .feature-description {
+            color: #333;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        #booksection {
+            /* background: linear-gradient(to right, #e96443, #904e95); */
+            padding: 50px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease;
+        }
+
+        #booksection h1 {
+            color: white;
+            font-size: 36px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        #booksection p {
+            color: white;
+            font-size: 20px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        #booksection .cta-button {
+            background: linear-gradient(135deg, #904e95, #e96443);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .reviews-section {
+            background: linear-gradient(to right, #ffffff, #f1f1f1);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reviews-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1200x600?text=Background+Image') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .reviews-title {
+            font-size: 36px;
+            color: #016052;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+            animation: textAnimation 5s infinite;
+        }
+
+        .review {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 700px;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: slideIn 1s ease;
+        }
+
+        .review:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .review-text {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .review-rating {
+            font-size: 22px;
+            color: #f39c12;
+        }
+
+        .star {
+            color: #f39c12;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            animation: footerAnimation 3s infinite;
+        }
+
+        @keyframes footerAnimation {
+            0%, 100% { background-color: #333; }
+            50% { background-color: #444; }
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-info,
+        .social-media {
+            flex: 1;
+            min-width: 200px;
+            margin: 0 10px;
+        }
+
+        .contact-info h3,
+        .social-media h3 {
+            color: #c69c6c;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p,
+        .social-media ul {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #c69c6c;
+        }
+
+        .social-media ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-media ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        .social-media a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #c69c6c;
+        }
+
+        @media (max-width: 880px) {
+            body {
+                background-image: url(./assets/technology/background-technology-tablet.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 100%;
+            }
+
+            #launchalign,
+            #portalign,
+            #spacealign {
+                flex-direction: column-reverse;
+            }
+
+            .subnav {
+                display: none;
+            }
+
+            .responsivesubnav {
+                display: block;
+            }
+
+            ol {
+                flex-direction: row;
+            }
+
+            #onel,
+            #twop,
+            #threes {
+                background-color: white;
+            }
+
+            .switchsec {
+                padding: 30px;
+            }
+            .feature-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+        }
+
+        @media (max-width: 530px) {
+            body {
+                background-image: url(./assets/technology/background-technology-mobile.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 100%;
+            }
+
+            .switchsec {
+                padding: 20px;
+                text-align: center;
+            }
+
+            #launchimg,
+            #portimg,
+            #spaceimg {
+                margin-left: -20px;
+            }
+
+            ol {}
+
+            p {
+                padding: 20px;
+            }
+
+            #hlp,
+            #hpp,
+            #hsp {
+                padding-right: 0;
+            }
+
+            #mobilenav {
+                display: none;
+            }
+
+            .hamburger-button {
+                display: flex;
+                margin: 20px;
+            }
+
+            #mobilenav.active {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-end;
+                padding-top: 40px;
+            }
+
+            .justifyright {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+
+            ul {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="justifyright">
+            <a href="#"><img id="image1" class="hamburger-button" onclick="changeImage()"
+                    src="./assets/shared/icon-hamburger.svg" alt=""></a>
+            <nav id="mobilenav">
+                <div class="navleft">
+                    <img src="./assets/competation/logo/logo 5.png" alt="">
+                </div>
+                <div class="navright">
+                    <ul>
+                        <li class="navtab"><a href="index.html">HOME</a></li>
+                        <li class="navtab"><a href="/">DESTINATION</a></li>
+                        <li class="navtab"><a href="/">CREW</a></li>
+                        <li class="navtab"><a href="/">TECHNOLOGY</a></li>
+                    </ul>
+                </div>
+                <div class="navcenter">
+                    <button class="btncss">Book a Repair</button>
+                    <button class="btncss">Contact Us</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div id="shoealign">
+        <div class="shoecontainer">
+            <h1 class="headline">Bring Your Shoes Back to Life with SoleMender</h1>
+            <h2 class="subheadline">Expert Repairs for All Types of Footwear</h2>
+            <a href="#book-repair" class="cta-button">Book a Repair</a>
+            <div class="image-container">
+                <img src="./assets/competation/1.png" alt="Shoemaker at Work">
+            </div>
+        </div>
+    </div>
+    <section id="servicesection">
+        <div class="overview-container">
+            <h1 class="overview-title">SoleMender: Revive Your Footwear</h1>
+            <h2 class="overview-subtitle">Overview:</h2>
+            <p class="overview-paragraph">SoleMender is a premier footwear repair service dedicated to restoring and
+                enhancing all types of shoes. Whether it's a beloved pair of dress shoes, worn-out sneakers, or
+                cherished boots, SoleMender offers expert repair and refurbishment solutions to bring them back to life.
+            </p>
+
+            <h2 class="overview-subtitle">Benefits:</h2>
+            <ul class="benefits-list">
+                <li class="benefit-item"><strong class="highlight">Expert Craftsmanship:</strong> Our skilled
+                    technicians use high-quality materials and techniques to ensure your shoes are repaired to the
+                    highest standards. Each repair is done with precision and care, preserving the integrity and
+                    appearance of your footwear.</li>
+                <li class="benefit-item"><strong class="highlight">Comprehensive Services:</strong> From sole
+                    replacements and heel repairs to stitching and polishing, SoleMender provides a wide range of repair
+                    services. We address various issues, ensuring that every aspect of your shoes is expertly handled.
+                </li>
+                <li class="benefit-item"><strong class="highlight">Sustainability:</strong> By choosing SoleMender, you
+                    contribute to sustainability by extending the life of your footwear. Repairing rather than replacing
+                    reduces waste and supports eco-friendly practices.</li>
+                <li class="benefit-item"><strong class="highlight">Convenience:</strong> We offer hassle-free booking
+                    and repair processes, including options for pickup and delivery, so you can get your shoes fixed
+                    without disrupting your busy schedule.</li>
+                <li class="benefit-item"><strong class="highlight">Affordable Solutions:</strong> Our services are
+                    competitively priced, providing excellent value for the quality of work we deliver. We believe in
+                    making top-notch repair services accessible to everyone.</li>
+                <li class="benefit-item"><strong class="highlight">Customer Satisfaction:</strong> At SoleMender,
+                    customer satisfaction is our top priority. We strive to exceed expectations with every repair,
+                    ensuring that you walk away with footwear that looks and feels like new.</li>
+            </ul>
+            <p class="overview-paragraph"><strong class="highlight">Experience the SoleMender difference and give your
+                    shoes the care they deserve. Book a repair today and step confidently with restored
+                    footwear!</strong></p>
+        </div>
+    </section>
+    <section id="featuressection">
+        <div class="container">
+            <h1 class="container-title">Why Choose Sole Mender?</h1>
+            <div class="feature-container">
+                <div class="feature">
+                    <img src="./assets/competation/features/49.png" alt="Craftsmanship Icon" class="feature-icon">
+                    <div>
+                        <h2 class="feature-title">Expert Craftsmanship</h2>
+                        <p class="feature-description">Skilled repairs for all types of footwear.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <img src="./assets/competation/features/43.png" alt="Clock Icon" class="feature-icon">
+                    <div>
+                        <h2 class="feature-title">Quick Turnaround</h2>
+                        <p class="feature-description">Fast and efficient repair service.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <img src="./assets/competation/features/dollar icon.png" alt="Dollar Sign Icon"
+                        class="feature-icon">
+                    <div>
+                        <h2 class="feature-title">Affordable Pricing</h2>
+                        <p class="feature-description">Competitive pricing for quality repairs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="booksection">
+        <h1>How to Book a Repair</h1>
+        <p>Follow these simple steps to get your shoes repaired and looking like new!</p>
+        <div id="main">
+            <div class="subnav">
+                <ol>
+                    <li id="onel" class="toggle-tab active" data-target="one">1</li>
+                    <li id="twop" class="toggle-tab" data-target="two">2</li>
+                    <li id="threes" class="toggle-tab" data-target="three">3</li>
+                </ol>
+            </div>
+
+            <div class="switchsec">
+                <span id="launch" class="toggle-button active" data-target="one">
+                    <div id="launchalign">
+                        <div id="hlp">
+                            <h3>Step 1</h3>
+                            <h1>Book a Repair</h1>
+                            <p>Schedule a convenient time for repair.</p>
+                        </div>
+                        <div class="responsivesubnav">
+                            <ol>
+                                <li id="onel" class="toggle-tab active" data-target="one">1</li>
+                                <li id="twop" class="toggle-tab" data-target="two">2</li>
+                                <li id="threes" class="toggle-tab" data-target="three">3</li>
+                            </ol>
+                        </div>
+                        <div id="launchimg">
+                            <img src="./assets/competation/logo/56.png" alt="Calendar Icon">
+                        </div>
+                    </div>
+                </span>
+                <span id="port" class="toggle-button" data-target="two">
+                    <div id="portalign">
+                        <div id="hpp">
+                            <h3>Step 2</h3>
+                            <h1>Professional Repair</h1>
+                            <p>Expertly repair your shoes to like-new condition.</p>
+                        </div>
+                        <div class="responsivesubnav">
+                            <ol>
+                                <li id="onel" class="toggle-tab" data-target="one">1</li>
+                                <li id="twop" class="toggle-tab active" data-target="two">2</li>
+                                <li id="threes" class="toggle-tab" data-target="three">3</li>
+                            </ol>
+                        </div>
+                        <div id="portimg">
+                            <img src="./assets/competation/logo/57.png" alt="Shoemaker Icon">
+                        </div>
+                    </div>
+                </span>
+                <span id="space" class="toggle-button" data-target="three">
+                    <div id="spacealign">
+                        <div id="hsp">
+                            <h3>Step 3</h3>
+                            <h1>Pickup/Delivery</h1>
+                            <p>Pick up your repaired shoes or have them delivered.</p>
+                        </div>
+                        <div class="responsivesubnav">
+                            <ol>
+                                <li id="onel" class="toggle-tab" data-target="one">1</li>
+                                <li id="twop" class="toggle-tab" data-target="two">2</li>
+                                <li id="threes" class="toggle-tab active" data-target="three">3</li>
+                            </ol>
+                        </div>
+                        <div id="spaceimg">
+                            <img src="./assets/competation/logo/58.png" alt="Delivery Truck Icon">
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </section>
+    <section class="reviews-section">
+        <h2 class="reviews-title">What Our Customers Are Saying</h2>
+
+        <div class="review">
+            <p class="review-name">Emily Carter</p>
+            <p class="review-text">"Sole Mender made my old boots look brand new. Fantastic service!"</p>
+            <p class="review-rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </p>
+        </div>
+
+        <div class="review">
+            <p class="review-name">James Lee</p>
+            <p class="review-text">"Quick turnaround and great craftsmanship. Highly recommend!"</p>
+            <p class="review-rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </p>
+        </div>
+    </section>
+
+    <section id="contactform">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <form id="contact">
+                <div>
+                    <label for="name">Name<span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email<span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+                <div>
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject">
+                </div>
+                <div>
+                    <label for="message">Message<span class="required">*</span></label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            </div>
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://facebook.com" target="_blank" class="facebook"><img src="./assets/competation/social/61.png" alt="">Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank" class="twitter"><img src="./assets/competation/social/fac.png" alt="">Twitter</a></li>
+                    <li><a href="https://instagram.com" target="_blank" class="instagram"><img src="./assets/competation/social/60.png" alt="">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggleTabs = document.querySelectorAll('.toggle-tab');
+        const toggleButtons = document.querySelectorAll('.toggle-button');
+
+        toggleTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                toggleTabs.forEach(t => {
+                    t.classList.remove('active');
+                });
+
+                tab.classList.add('active');
+
+                const target = tab.getAttribute('data-target')
+
+                toggleButtons.forEach(btn => {
+                    const targetBtn = btn.getAttribute('data-target')
+                    if (targetBtn === target) {
+                        btn.classList.add('active')
+
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            });
+        });
+        const hamburgerButton = document.querySelector('.hamburger-button')
+        const mobileNav = document.querySelector('#mobilenav')
+
+        hamburgerButton.addEventListener('click', () => {
+            mobileNav.classList.toggle('active')
+        })
+        function changeImage() {
+            let displayImage = document.getElementById('image1')
+            if (displayImage.src.match('./assets/shared/icon-hamburger.svg')) {
+                displayImage.src = './assets/shared/icon-close.svg'
+            }
+            else {
+                displayImage.src = './assets/shared/icon-hamburger.svg'
+            }
+        }
+    </script>
+</body>
+
+</html>
